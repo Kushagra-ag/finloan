@@ -17,9 +17,9 @@ import './index.css';
 export default function System() {
 
 	return(
-		<div id="system" className="pl-5 mb-5 container-fluid p-0 container-cls">
+		<div id="system" className="pl-5 mb-5">
 			<h5 className="py-3">System</h5>
-			<div className="row">
+			<div className="row w-100">
 				<div className="col-sm-6 col-lg-4 my-3">
 					<div className="white-card d-flex align-items-center justify-content-start">
 						<div className="icon-img grid mr-4">
