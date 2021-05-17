@@ -1,24 +1,30 @@
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 import './App.css';
 import System from './pages/system';
+import ManageCodes from './pages/manageCodes';
+import EditCode from './pages/editCode';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-          {/*<Route path="/about">
-            <About />
+        <Route path="/editcode">
+            <EditCode />
           </Route>
-          <Route path="/users">
-            <Users />
-          </Route>*/}
-          <Route path="/">
+          <Route path="/managecodes">
+            <ManageCodes />
+          </Route>
+          <Route path="/system">
             <System />
+          </Route>
+          <Route path="/">
+            <Redirect to="/system" />
           </Route>
         </Switch>
       </Router>

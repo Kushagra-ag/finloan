@@ -13,3 +13,21 @@ body {
   padding: 20px;
   height: 100%;
 }
+
+.blue-btn {
+	background-color: #e3ebf8;
+    color: #518ef8;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid #518ef8;
+}
+
+.text-blue {
+	color: #518EF8;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
