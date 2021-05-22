@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import Grid from './icons/grid.svg';
 import Audit from './icons/file.svg';
 import Code from './icons/code.svg';
@@ -15,6 +16,8 @@ import TwoFA from './icons/settings-2.svg';
 import './index.css';
 
 export default function System() {
+
+  const history = useHistory();
 
   return(
     <div id="system" className="pl-5 mb-5">
@@ -44,7 +47,7 @@ export default function System() {
             
           </div>
         </div>
-        <div className="col-sm-6 col-lg-4 my-3">
+        <div className="col-sm-6 col-lg-4 my-3" onClick={() => history.push('/managecodes')}>
           <div className="white-card d-flex align-items-center justify-content-start">
             <div className="icon-img code mr-4">
               <img src={Code} alt=""/>

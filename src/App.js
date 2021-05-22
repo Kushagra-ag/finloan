@@ -15,12 +15,9 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          {/*<Route path="/addcodevalue">
-            <AddCodeValue />
-          </Route>
           <Route path="/editcode">
             <EditCode />
-          </Route>*/}
+          </Route>}
           <Route path="/managecodes">
             <ManageCodes />
           </Route>
