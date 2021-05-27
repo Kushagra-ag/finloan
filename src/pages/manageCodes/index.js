@@ -51,24 +51,34 @@ export default function ManageCodes() {
   const [codes, updateCodes] = useState(data);
   const [search, updateSearch] = useState([]);
   const [query, setQuery] = useState('');
+  const [addCodeInput, setAddCodeInput] = useState('');
+  const [modal, setModal] = useState('');
 
-  useEffect(() => {
+  const triggerModal = e => {console.log('in triggermodal ', e);
+    setModal(e);
+  }
 
-  }, [])
 
-  const addCode = newCode => {
+  const handleAddCode = e => {
+    setAddCodeInput(e.target.value.trim())
+  }
+
+  const addCode = () => {
 
     let unique = 1;
 
     codes.forEach(code => {
-      if(code === newCode) {
+      if(code.code === addCodeInput) {
         unique = 0;
-        // break;
+        setModal('duplicatecode');
+        return
       }
     })
 
+    console.log(unique)
     if(unique) {
-      updateCodes(codes => [...codes, newCode]);
+      updateCodes(codes => [...codes, {code: addCodeInput}]);
+      setModal('');
     }
   }
 
@@ -87,8 +97,6 @@ export default function ManageCodes() {
 
       codes.forEach((code, ind) => {
         let match = code.code.match(regexp);
-        console.log('ind- ', match);
-        
 
         if(match) {
           
@@ -107,7 +115,7 @@ export default function ManageCodes() {
     <div id="managecodes" className="pl-5 mb-5">
       <div className="py-3 d-flex align-items-center">
         <h5 className="flex-grow-1">Manage Codes</h5>
-        <div className="blue-btn" data-toggle="modal" data-target="#addCodeModal">
+        <div className="blue-btn" onClick={() => triggerModal('addcode')}>
           <img src={Plus} className="mr-2" alt="" />
           Add Codes
         </div>
@@ -172,26 +180,50 @@ export default function ManageCodes() {
 
       </div>
       {/*<!-- Modals -->*/}
-      <div className="modal fade" id="addCodeModal" tabIndex="-1" role="dialog" aria-labelledby="addCode" aria-hidden="true">
+      <div className={`modal fade ${modal==='addcode' ? 'show d-block' : ''}`} tabIndex="-1" role="dialog" aria-labelledby="addCode" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header border-bottom-0">
               <h5 className="modal-title" id="addCodeModal">Add code</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => setModal('')}>
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div className="modal-body">
               <label className="form-label" htmlFor="addCode">Code Name</label>
-              <input type="text" id="addCode" className="form-control" />
+              <input type="text" id="addCode" value={addCodeInput} onChange={e => handleAddCode(e)} className="form-control" />
             </div>
             <div className="modal-footer border-top-0">
-              <button type="button" className="green-btn w-100" data-dismiss="modal">Save</button>
+              <button type="button" className="green-btn w-100" data-dismiss="modal" onClick={addCode}>Save</button>
             </div>
           </div>
         </div>
       </div>
+
+      <div className={`modal fade ${modal==='duplicatecode' ? 'show d-block' : ''}`} tabIndex="-1" role="dialog" aria-labelledby="addCode" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content">
+            <div className="modal-header border-bottom-0">
+              <h5 className="modal-title" id="addCodeModal">Error</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => setModal('')}>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <label className="form-label" htmlFor="addCode">Code already exists</label>
+              {/*<input type="text" id="addCode" value={addCodeInput} onChange={e => handleAddCode(e)} className="form-control" />*/}
+            </div>
+            <div className="modal-footer border-top-0">
+              <button type="button" className="green-btn w-100" data-dismiss="modal" onClick={() => setModal('')}>Okay</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
     </div>
+
+
 
     
   )
