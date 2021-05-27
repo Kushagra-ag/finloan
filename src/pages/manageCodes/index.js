@@ -1,9 +1,107 @@
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Plus from './icons/plus-circle.svg';
 import Search from './icons/search.svg';
 import Edit from './icons/edit.svg';
 import './index.css';
 
+const data = [
+  {
+    code: 'ADDRESS_TYPE'
+  },
+  {
+    code: 'Asset account tags'
+  },
+  {
+    code: 'CenterClosureReason'
+  },
+  {
+    code: 'ClientClassification'
+  },
+  {
+    code: 'Client closure reason'
+  },
+  {
+    code: 'ClientRejectReason'
+  },
+  {
+    code: 'ClientSubStatus'
+  },
+  {
+    code: 'ClientType'
+  },
+  {
+    code: 'Customer identifier'
+  },
+  {
+    code: 'Entity to Entity Access Types'
+  },
+  {
+    code: 'Equity account tags'
+  },
+  {
+    code: 'Expense account tags'
+  },
+]
+
 export default function ManageCodes() {
+
+  const history = useHistory();
+
+  const [codes, updateCodes] = useState(data);
+  const [search, updateSearch] = useState([]);
+  const [query, setQuery] = useState('');
+
+  useEffect(() => {
+
+  }, [])
+
+  const addCode = newCode => {
+
+    let unique = 1;
+
+    codes.forEach(code => {
+      if(code === newCode) {
+        unique = 0;
+        // break;
+      }
+    })
+
+    if(unique) {
+      updateCodes(codes => [...codes, newCode]);
+    }
+  }
+
+  const handleSearch = e => {
+    
+    const q = e.target.value.trim();
+    console.log(q);
+    let matchArr = [];
+
+    setQuery(Boolean(q));
+
+    if(q.length > 0) {
+
+
+      const regexp = new RegExp(`^${q}`, 'i');
+
+      codes.forEach((code, ind) => {
+        let match = code.code.match(regexp);
+        console.log('ind- ', match);
+        
+
+        if(match) {
+          
+          matchArr = [...matchArr, codes[ind]];
+        }
+      });
+
+      updateSearch([...matchArr]);
+
+    } else {
+      updateSearch([]);
+    }
+  }
 
   return(
     <div id="managecodes" className="pl-5 mb-5">
@@ -26,204 +124,54 @@ export default function ManageCodes() {
                 </span>
               </div>
             
-              <input placeholder="Search by name" id="inlineFormInputGroup" className="search-input form-control border-0" />
+              <input placeholder="Search by name" id="inlineFormInputGroup" className="search-input form-control border-0" onChange={e => handleSearch(e)}/>
             </div>
           </form>
         </div>
       </div>
       <div className="row w-100">
-        <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-between">
-            <div>
-              <h6 className="code-name">
-                Code name
-              </h6>
-              <h6>ADDRESS_TYPE</h6>
-              <span className="system-text pr-2">System Defined</span>
-              <span className="text-blue pl-2">True</span>
+      {
+        query ? 
+        (search.length > 0 ? 
+        search.map(code => (
+          <div className="col-sm-6 col-lg-4 my-3" key={code.code}>
+              <div className="white-card d-flex align-items-center justify-content-between">
+                <div>
+                  <h6 className="code-name">
+                    Code name
+                  </h6>
+                  <h6>{code.code}</h6>
+                  <span className="system-text pr-2">System Defined</span>
+                  <span className="text-blue pl-2">True</span>
+                </div>
+                <div className="align-self-start">
+                  <img src={Edit} className="cursor-pointer" alt="" onClick={() => history.push('/editcode')}/>
+                </div>
+              </div>
             </div>
-            <div className="align-self-start">
-              <img src={Edit} className="cursor-pointer" alt=""/>
+        )) : null) :
+        codes.map(code => (
+          <div className="col-sm-6 col-lg-4 my-3" key={code.code}>
+            <div className="white-card d-flex align-items-center justify-content-between">
+              <div>
+                <h6 className="code-name">
+                  Code name
+                </h6>
+                <h6>{code.code}</h6>
+                <span className="system-text pr-2">System Defined</span>
+                <span className="text-blue pl-2">True</span>
+              </div>
+              <div className="align-self-start">
+                <img src={Edit} className="cursor-pointer" alt="" onClick={() => history.push('/editcode')}/>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-between">
-            <div>
-              <h6 className="code-name">
-                Code name
-              </h6>
-              <h6>Asset account tags</h6>
-              <span className="system-text pr-2">System Defined</span>
-              <span className="text-blue pl-2">True</span>
-            </div>
-            <div className="align-self-start">
-              <img src={Edit} className="cursor-pointer" alt=""/>
-            </div>
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-between">
-            <div>
-              <h6 className="code-name">
-                Code name
-              </h6>
-              <h6>CenterClosureReason</h6>
-              <span className="system-text pr-2">System Defined</span>
-              <span className="text-blue pl-2">True</span>
-            </div>
-            <div className="align-self-start">
-              <img src={Edit} className="cursor-pointer" alt=""/>
-            </div>
-            
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-between">
-            <div>
-              <h6 className="code-name">
-                Code name
-              </h6>
-              <h6>ClientClassification</h6>
-              <span className="system-text pr-2">System Defined</span>
-              <span className="text-blue pl-2">True</span>
-            </div>
-            <div className="align-self-start">
-              <img src={Edit} className="cursor-pointer" alt=""/>
-            </div>
-            
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-between">
-            <div>
-              <h6 className="code-name">
-                Code name
-              </h6>
-              <h6>Client closure reason</h6>
-              <span className="system-text pr-2">System Defined</span>
-              <span className="text-blue pl-2">True</span>
-            </div>
-            <div className="align-self-start">
-              <img src={Edit} className="cursor-pointer" alt=""/>
-            </div>
-            
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-between">
-            <div>
-              <h6 className="code-name">
-                Code name
-              </h6>
-              <h6>ClientRejectReason</h6>
-              <span className="system-text pr-2">System Defined</span>
-              <span className="text-blue pl-2">True</span>
-            </div>
-            <div className="align-self-start">
-              <img src={Edit} className="cursor-pointer" alt=""/>
-            </div>
-            
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-between">
-            <div>
-              <h6 className="code-name">
-                Code name
-              </h6>
-              <h6>ClientSubStatus</h6>
-              <span className="system-text pr-2">System Defined</span>
-              <span className="text-blue pl-2">True</span>
-            </div>
-            <div className="align-self-start">
-              <img src={Edit} className="cursor-pointer" alt=""/>
-            </div>
-            
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-between">
-            <div>
-              <h6 className="code-name">
-                Code name
-              </h6>
-              <h6>ClientType</h6>
-              <span className="system-text pr-2">System Defined</span>
-              <span className="text-blue pl-2">True</span>
-            </div>
-            <div className="align-self-start">
-              <img src={Edit} className="cursor-pointer" alt=""/>
-            </div>
-            
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-between">
-            <div>
-              <h6 className="code-name">
-                Code name
-              </h6>
-              <h6>Customer identifier</h6>
-              <span className="system-text pr-2">System Defined</span>
-              <span className="text-blue pl-2">True</span>
-            </div>
-            <div className="align-self-start">
-              <img src={Edit} className="cursor-pointer" alt=""/>
-            </div>
-            
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-between">
-            <div>
-              <h6 className="code-name">
-                Code name
-              </h6>
-              <h6>Entity to Entity Access Types</h6>
-              <span className="system-text pr-2">System Defined</span>
-              <span className="text-blue pl-2">True</span>
-            </div>
-            <div className="align-self-start">
-              <img src={Edit} className="cursor-pointer" alt=""/>
-            </div>
-            
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-between">
-            <div>
-              <h6 className="code-name">
-                Code name
-              </h6>
-              <h6>Equity account tags</h6>
-              <span className="system-text pr-2">System Defined</span>
-              <span className="text-blue pl-2">True</span>
-            </div>
-            <div className="align-self-start">
-              <img src={Edit} className="cursor-pointer" alt=""/>
-            </div>
-            
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-between">
-            <div>
-              <h6 className="code-name">
-                Code name
-              </h6>
-              <h6>Expense account tags</h6>
-              <span className="system-text pr-2">System Defined</span>
-              <span className="text-blue pl-2">True</span>
-            </div>
-            <div className="align-self-start">
-              <img src={Edit} className="cursor-pointer" alt=""/>
-            </div>
-            
-          </div>
-        </div>
+        ))
+        
+      }
+
       </div>
-      {/*<!-- Modal -->*/}
+      {/*<!-- Modals -->*/}
       <div className="modal fade" id="addCodeModal" tabIndex="-1" role="dialog" aria-labelledby="addCode" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
@@ -234,7 +182,7 @@ export default function ManageCodes() {
               </button>
             </div>
             <div className="modal-body">
-              <label className="form-label" for="addCode">Code Name</label>
+              <label className="form-label" htmlFor="addCode">Code Name</label>
               <input type="text" id="addCode" className="form-control" />
             </div>
             <div className="modal-footer border-top-0">

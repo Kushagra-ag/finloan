@@ -24,7 +24,7 @@ export default function System() {
       <h5 className="py-3">System</h5>
       <div className="row w-100">
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img grid mr-4">
               <img src={Grid} alt=""/>
             </div>
@@ -36,7 +36,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img audit mr-4">
               <img src={Audit} alt=""/>
             </div>
@@ -48,7 +48,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3" onClick={() => history.push('/managecodes')}>
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img code mr-4">
               <img src={Code} alt=""/>
             </div>
@@ -60,7 +60,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img grid mr-4">
               <img src={Reports} alt=""/>
             </div>
@@ -72,7 +72,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img audit mr-4">
               <img src={Permissions} alt=""/>
             </div>
@@ -84,7 +84,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img code mr-4">
               <img src={Calendar} alt=""/>
             </div>
@@ -96,7 +96,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img settings mr-4">
               <img src={Settings} alt=""/>
             </div>
@@ -108,7 +108,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img config mr-4">
               <img src={Config} alt=""/>
             </div>
@@ -120,7 +120,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img hook mr-4">
               <img src={Hook} alt=""/>
             </div>
@@ -132,7 +132,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img account mr-4">
               <img src={Account} alt=""/>
             </div>
@@ -144,7 +144,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img entity mr-4">
               <img src={Entity} alt=""/>
             </div>
@@ -156,7 +156,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img service mr-4">
               <img src={Service} alt=""/>
             </div>
@@ -168,7 +168,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img survey mr-4">
               <img src={Surveys} alt=""/>
             </div>
@@ -180,7 +180,7 @@ export default function System() {
           </div>
         </div>
         <div className="col-sm-6 col-lg-4 my-3">
-          <div className="white-card d-flex align-items-center justify-content-start">
+          <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
             <div className="icon-img TwoFA mr-4">
               <img src={TwoFA} alt=""/>
             </div>

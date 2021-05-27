@@ -8,7 +8,6 @@ import './App.css';
 import System from './pages/system';
 import ManageCodes from './pages/manageCodes';
 import EditCode from './pages/editCode';
-import AddCodeValue from './pages/addCodeValue';
 
 function App() {
   return (

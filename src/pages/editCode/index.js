@@ -1,8 +1,50 @@
+import { useState } from 'react';
 import Plus from './icons/plus-circle.svg';
 import ArrowDown from './icons/chevron-down.svg';
 import './index.css';
 
+const data = [
+	{
+		name: 'CodeValueName',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed',
+		position: 'Position details',
+		active: true
+	},
+	{
+		name: 'CodeValueName',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed',
+		position: 'Position details',
+		active: true
+	},
+	{
+		name: 'CodeValueName',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed',
+		position: 'Position details',
+		active: false
+	},
+	{
+		name: 'CodeValueName',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed',
+		position: 'Position details',
+		active: true
+	},
+	{
+		name: 'CodeValueName',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed',
+		position: 'Position details',
+		active: true
+	},
+	{
+		name: 'CodeValueName',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed',
+		position: 'Position details',
+		active: true
+	},
+]
+
 export default function EditCode() {
+
+	const [values, setValues] = useState(data);
 
 	return (
 		<div id="editcode" className="pl-5 mb-5">
@@ -28,66 +70,21 @@ export default function EditCode() {
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <tr>
-					      <td className="name-col">CodeValueName</td>
-					      <td className="desc-col">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed</td>
-					      <td className="pos-col">Position details</td>
-					      <td className="status-col">
-					      	<div className="active text-center d-inline-block">
-					      		Active
-					      	</div>
-					      </td>
-					    </tr>
-					    <tr>
-					      <td className="name-col">CodeValueName</td>
-					      <td className="desc-col">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed</td>
-					      <td className="pos-col">Position details</td>
-					      <td className="status-col">
-					      	<div className="active text-center d-inline-block">
-					      		Active
-					      	</div>
-					      </td>
-					    </tr>
-					    <tr>
-					      <td className="name-col">CodeValueName</td>
-					      <td className="desc-col">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed</td>
-					      <td className="pos-col">Position details</td>
-					      <td className="status-col">
-					      	<div className="inactive text-center d-inline-block">
-					      		Inactive
-					      	</div>
-					      </td>
-					    </tr>
-					    <tr>
-					      <td className="name-col">CodeValueName</td>
-					      <td className="desc-col">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed</td>
-					      <td className="pos-col">Position details</td>
-					      <td className="status-col">
-					      	<div className="active text-center d-inline-block">
-					      		Active
-					      	</div>
-					      </td>
-					    </tr>
-					    <tr>
-					      <td className="name-col">CodeValueName</td>
-					      <td className="desc-col">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed</td>
-					      <td className="pos-col">Position details</td>
-					      <td className="status-col">
-					      	<div className="active text-center d-inline-block">
-					      		Active
-					      	</div>
-					      </td>
-					    </tr>
-					    <tr>
-					      <td className="name-col">CodeValueName</td>
-					      <td className="desc-col">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed</td>
-					      <td className="pos-col">Position details</td>
-					      <td className="status-col">
-					      	<div className="active text-center d-inline-block">
-					      		Active
-					      	</div>
-					      </td>
-					    </tr>
+					  	{
+					  		values.map(record => (
+
+					  			<tr>
+							      <td className="name-col">{record.name}</td>
+							      <td className="desc-col">{record.description}</td>
+							      <td className="pos-col">{record.position}</td>
+							      <td className="status-col">
+							      	<div className={`${record.active ? 'active' : 'inactive'} text-center d-inline-block`}>
+							      		{record.active ? 'Active' : 'Inactive'}
+							      	</div>
+							      </td>
+							    </tr>
+					  		))
+					  	}
 					  </tbody>
 					</table>
 
