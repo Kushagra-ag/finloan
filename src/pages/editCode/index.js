@@ -59,8 +59,8 @@ export default function EditCode() {
 			<div className="row my-5 w-100">
 				<div className="col-12 d-flex justify-content-center">
 
-
-					<table className="table table-borderless table-hover table-responsive-sm bg-white overflow-hidden">
+				<div class="table-responsive-sm">
+					<table className="table table-borderless table-hover bg-white overflow-hidden">
 					  <thead>
 					    <tr className="py-4">
 					      <th scope="col" className="pl-4">Name<span><img src={ArrowDown} alt="" /></span></th>
@@ -87,7 +87,7 @@ export default function EditCode() {
 					  	}
 					  </tbody>
 					</table>
-
+				</div>
 				</div>
 			</div>
 

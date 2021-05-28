@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import swal from 'sweetalert';
 import { useHistory } from 'react-router-dom';
 import Plus from './icons/plus-circle.svg';
 import Search from './icons/search.svg';
@@ -70,12 +71,16 @@ export default function ManageCodes() {
     codes.forEach(code => {
       if(code.code === addCodeInput) {
         unique = 0;
-        setModal('duplicatecode');
+        setModal('');
+        swal({
+          icon: 'error',
+          title:
+            'This code already exists'
+        });
         return
       }
     })
 
-    console.log(unique)
     if(unique) {
       updateCodes(codes => [...codes, {code: addCodeInput}]);
       setModal('');
@@ -85,7 +90,6 @@ export default function ManageCodes() {
   const handleSearch = e => {
     
     const q = e.target.value.trim();
-    console.log(q);
     let matchArr = [];
 
     setQuery(Boolean(q));
@@ -200,25 +204,7 @@ export default function ManageCodes() {
         </div>
       </div>
 
-      <div className={`modal fade ${modal==='duplicatecode' ? 'show d-block' : ''}`} tabIndex="-1" role="dialog" aria-labelledby="addCode" aria-hidden="true">
-        <div className="modal-dialog modal-dialog-centered" role="document">
-          <div className="modal-content">
-            <div className="modal-header border-bottom-0">
-              <h5 className="modal-title" id="addCodeModal">Error</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => setModal('')}>
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              <label className="form-label" htmlFor="addCode">Code already exists</label>
-              {/*<input type="text" id="addCode" value={addCodeInput} onChange={e => handleAddCode(e)} className="form-control" />*/}
-            </div>
-            <div className="modal-footer border-top-0">
-              <button type="button" className="green-btn w-100" data-dismiss="modal" onClick={() => setModal('')}>Okay</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     
 
     </div>
