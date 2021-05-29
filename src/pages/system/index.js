@@ -13,7 +13,7 @@ import Entity from './icons/people.svg';
 import Service from './icons/settings-2.svg';
 import Surveys from './icons/file-3.svg';
 import TwoFA from './icons/settings-2.svg';
-import './index.css';
+import './index.scss';
 
 export default function System() {
 

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Plus from './icons/plus-circle.svg';
 import Search from './icons/search.svg';
 import Edit from './icons/edit.svg';
-import './index.css';
+import './index.scss';
 
 const data = [
   {
@@ -55,7 +55,7 @@ export default function ManageCodes() {
   const [addCodeInput, setAddCodeInput] = useState('');
   const [modal, setModal] = useState('');
 
-  const triggerModal = e => {console.log('in triggermodal ', e);
+  const triggerModal = e => {
     setModal(e);
   }
 
@@ -67,9 +67,10 @@ export default function ManageCodes() {
   const addCode = () => {
 
     let unique = 1;
+    const regexp = new RegExp(`^${addCodeInput}`, 'i');
 
     codes.forEach(code => {
-      if(code.code === addCodeInput) {
+      if(code.code.match(regexp)) {
         unique = 0;
         setModal('');
         swal({
@@ -203,10 +204,6 @@ export default function ManageCodes() {
           </div>
         </div>
       </div>
-
-      
-    
-
     </div>
 
 

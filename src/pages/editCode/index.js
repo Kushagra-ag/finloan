@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Plus from './icons/plus-circle.svg';
 import ArrowDown from './icons/chevron-down.svg';
-import './index.css';
+import './index.scss';
 
 const data = [
 	{
@@ -59,7 +59,7 @@ export default function EditCode() {
 			<div className="row my-5 w-100">
 				<div className="col-12 d-flex justify-content-center">
 
-				<div class="table-responsive-sm">
+				<div className="table-responsive-sm">
 					<table className="table table-borderless table-hover bg-white overflow-hidden">
 					  <thead>
 					    <tr className="py-4">
@@ -73,7 +73,7 @@ export default function EditCode() {
 					  	{
 					  		values.map(record => (
 
-					  			<tr>
+					  			<tr key={record.name}>
 							      <td className="name-col">{record.name}</td>
 							      <td className="desc-col">{record.description}</td>
 							      <td className="pos-col">{record.position}</td>
