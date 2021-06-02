@@ -4,16 +4,20 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import './App.css';
+import './App.scss';
 import System from './pages/system';
 import ManageCodes from './pages/manageCodes';
 import EditCode from './pages/editCode';
+import AddCodeValue from './pages/addCodeValue';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
+        <Route path="/addcodevalue">
+            <AddCodeValue />
+          </Route>
           <Route path="/editcode">
             <EditCode />
           </Route>}

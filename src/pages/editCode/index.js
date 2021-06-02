@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Plus from './icons/plus-circle.svg';
 import ArrowDown from './icons/chevron-down.svg';
 import './index.scss';
@@ -44,13 +45,14 @@ const data = [
 
 export default function EditCode() {
 
+	const history = useHistory();
 	const [values, setValues] = useState(data);
 
 	return (
 		<div id="editcode" className="pl-5 mb-5">
 			<div className="py-3 d-flex align-items-center">
 				<h5 className="flex-grow-1">ADDRESS_TYPE</h5>
-				<div className="blue-btn">
+				<div className="blue-btn" onClick={() => history.push('/addcodevalue')}>
 					<img src={Plus} className="mr-2" alt="" />
 					Add Code Values
 				</div>
