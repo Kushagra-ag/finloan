@@ -22,6 +22,22 @@ body {
   height: 50px;
 }
 
+form .form-region {
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #0a213e26;
+}
+
+form label {
+  font-size: 14px;
+}
+
+form textarea {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
 .blue-btn {
 	background-color: #e3ebf8;
     color: #518ef8;
@@ -30,6 +46,16 @@ body {
     margin-right: 10px;
     cursor: pointer;
     border: 2px solid #518ef8;
+}
+
+.red-btn {
+  background: rgba(253, 94, 26, 0.1);
+    color: #fd5e1a;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid #fd5e1a;
 }
 
 .blue-box {
@@ -67,6 +93,8 @@ body {
   cursor: pointer;
 }
 
+// table styles
+
 #editcode, #managereports {
   .table {
     border-radius: 15px;
@@ -103,5 +131,28 @@ body {
       max-width: 25vw;
         /*word-break: break-all;*/
     }
+  }
+}
+
+// search box styles
+
+#managereports, #createreport {
+  .search-box {
+    filter: drop-shadow(2px 1px 10px #c3c3c3);
+  }
+  .search-box>div, .search-box>form {
+    max-width: 650px;
+  }
+  .input-group-prepend>span {
+    border: 0;
+      border-top-left-radius: 30px !important;
+      border-bottom-left-radius: 30px !important;
+  }
+  .search-input {
+    padding: 1.9rem 1rem;
+    border-right: 1px solid #c3c3c3!important;
+  }
+  .form-control:focus {
+    box-shadow: none;
   }
 }

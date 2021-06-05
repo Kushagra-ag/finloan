@@ -12,6 +12,7 @@
 /build
 
 /src/dev-routes.js
+/.prettierrc.json
 
 # misc
 .DS_Store
