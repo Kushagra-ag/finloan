@@ -81,11 +81,22 @@ form textarea {
     cursor: pointer;
 }
 
+.delete-btn {
+  background-color: #FD5E1A;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.cancel-btn {
+  color: rgba(10,33,62,0.6);
+  background-color: #f3f5f8;
+  border-radius: 5px;
+}
+
 .modal {
   background-color: #00000088;
 }
 .modal-content {
-  border-radius: 15px;
   border: none;
 }
 
