@@ -14,6 +14,10 @@
 /src/dev-routes.js
 /.prettierrc.json
 
+#incomplete
+/src/pages/editReport
+/src/pages/manageRoles
+
 # misc
 .DS_Store
 .env.local
