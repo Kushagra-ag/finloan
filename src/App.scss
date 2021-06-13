@@ -38,11 +38,44 @@ form textarea {
   outline: none;
 }
 
+.custom-control-label::before {
+  background-color: #d3d9e14d;
+  border-width: 0;
+}
+
+.custom-control-label::before {
+  height: .4rem;
+  top: .55rem;
+}
+
+.custom-switch .custom-control-input:checked~.custom-control-label::after {
+ background-color: #518ef8; 
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+  background-color: #518ef84d;
+  border-width: 0!important;
+  box-shadow: none;
+}
+
+.custom-switch .custom-control-label::after {
+  top: calc(.25rem + 0px);
+    left: calc(-2.25rem + 2px);
+    width: calc(1rem - 1px);
+    height: calc(1rem - 1px);
+    cursor: pointer;
+}
+
+.custom-control-input:focus~.custom-control-label::before {
+  box-shadow: none;
+}
+
+
 .blue-btn {
 	background-color: #e3ebf8;
     color: #518ef8;
     border-radius: 25px;
-    padding: 10px 20px;
+    padding: 6px 20px;
     margin-right: 10px;
     cursor: pointer;
     border: 2px solid #518ef8;
@@ -52,7 +85,7 @@ form textarea {
   background: rgba(253, 94, 26, 0.1);
     color: #fd5e1a;
     border-radius: 25px;
-    padding: 10px 20px;
+    padding: 6px 20px;
     margin-right: 10px;
     cursor: pointer;
     border: 2px solid #fd5e1a;
@@ -104,9 +137,30 @@ form textarea {
   cursor: pointer;
 }
 
+// blue card styles
+.blue-card.white-card, .blue-card .text-muted {
+  background-color: #518ef8;
+  color: #fff!important;
+}
+
+.blue-card .red-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: #fff;
+}
+
+.blue-card .custom-switch .custom-control-input:checked~.custom-control-label::after {
+ background-color: #fff; 
+}
+
+.blue-card .custom-control-input:checked~.custom-control-label::before {
+  background-color: #ffffff4d;
+}
+
+
 // table styles
 
-#editcode, #managereports {
+#editcode, #managereports, #managejobs {
   .table {
     border-radius: 15px;
     padding: 0 2em;

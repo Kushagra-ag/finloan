@@ -12,12 +12,16 @@ import AddCodeValue from './pages/addCodeValue';
 import ManageReports from './pages/manageReports';
 import CreateReport from './pages/createReport';
 import ReportDetails from './pages/reportDetails';
+import EditReport from './pages/editReport';
 
 function App() {
     return (
         <div className="App">
             <Router>
                 <Switch>
+                    <Route path="/editreport">
+                        <EditReport />
+                    </Route>
                     <Route path="/reportdetails">
                         <ReportDetails />
                     </Route>

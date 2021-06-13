@@ -52,24 +52,19 @@ export default function ManageCodes() {
     const [search, updateSearch] = useState([]);
     const [query, setQuery] = useState('');
     const [addCodeInput, setAddCodeInput] = useState('');
-    const [modal, setModal] = useState('');
 
-    const triggerModal = e => {
-        setModal(e);
-    };
 
-    const handleAddCode = e => {
+    const handleAddCode = e => {console.log(e.target.value)
         setAddCodeInput(e.target.value.trim());
     };
 
     const addCode = () => {
         let unique = 1;
-        const regexp = new RegExp(`^${addCodeInput}`, 'i');
+        const regexp = new RegExp(`^${addCodeInput}$`, 'i');
 
         codes.forEach(code => {
             if (code.code.match(regexp)) {
                 unique = 0;
-                setModal('');
                 swal({
                     icon: 'error',
                     title: 'This code already exists'
@@ -80,7 +75,6 @@ export default function ManageCodes() {
 
         if (unique) {
             updateCodes(codes => [...codes, { code: addCodeInput }]);
-            setModal('');
         }
     };
 
@@ -113,7 +107,8 @@ export default function ManageCodes() {
                 <h5 className="flex-grow-1">Manage Codes</h5>
                 <div
                     className="blue-btn"
-                    onClick={() => triggerModal('addcode')}
+                    data-toggle="modal" data-target="#addcode"
+                    // onClick={() => triggerModal('addcode')}
                 >
                     <img src={Plus} className="mr-2" alt="" />
                     Add Codes
@@ -207,13 +202,12 @@ export default function ManageCodes() {
             </div>
             {/*<!-- Modals -->*/}
             <div
-                className={`modal fade ${
-                    modal === 'addcode' ? 'show d-block' : ''
-                }`}
+                className={`modal fade`}
                 tabIndex="-1"
                 role="dialog"
                 aria-labelledby="addCode"
                 aria-hidden="true"
+                id="addcode"
             >
                 <div
                     className="modal-dialog modal-dialog-centered"
@@ -229,7 +223,6 @@ export default function ManageCodes() {
                                 className="close"
                                 data-dismiss="modal"
                                 aria-label="Close"
-                                onClick={() => setModal('')}
                             >
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -240,7 +233,6 @@ export default function ManageCodes() {
                             </label>
                             <input
                                 type="text"
-                                id="addCode"
                                 value={addCodeInput}
                                 onChange={e => handleAddCode(e)}
                                 className="form-control"

@@ -39,7 +39,6 @@ export default function ReportDetails() {
                 <div>
                     <div
                         className="blue-btn d-inline-block"
-                        // onClick={() => triggerModal('addcode')}
                     >
                         <img src={EditBlue} className="mr-2" alt="" />
                         <span className="align-middle">Edit</span>

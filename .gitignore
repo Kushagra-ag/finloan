@@ -15,8 +15,9 @@
 /.prettierrc.json
 
 #incomplete
-/src/pages/editReport
 /src/pages/manageRoles
+/src/pages/manageJobs
+/src/pages/roleDetails
 
 # misc
 .DS_Store
