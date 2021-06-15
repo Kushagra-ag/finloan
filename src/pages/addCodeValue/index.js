@@ -1,3 +1,4 @@
+import React from 'react';
 import Plus from './icons/plus-outline.svg';
 
 export default function ManageCodes() {

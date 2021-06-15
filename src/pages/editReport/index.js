@@ -46,7 +46,7 @@ c.lastname AS "lastName",`
 }
 
 
-export default function ReportDetails() {
+export default function EditReport() {
     const [params, setParams] = useState(data);
     const [details, setDetails] = useState(reportData);
     const [query, setQuery] = useState('');

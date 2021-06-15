@@ -15,7 +15,6 @@
 /.prettierrc.json
 
 #incomplete
-/src/pages/manageRoles
 /src/pages/manageJobs
 /src/pages/roleDetails
 

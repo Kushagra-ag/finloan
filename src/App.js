@@ -13,12 +13,16 @@ import ManageReports from './pages/manageReports';
 import CreateReport from './pages/createReport';
 import ReportDetails from './pages/reportDetails';
 import EditReport from './pages/editReport';
+import ManageRoles from './pages/manageRoles';
 
 function App() {
     return (
         <div className="App">
             <Router>
                 <Switch>
+                    <Route path="/manageroles">
+                        <ManageRoles />
+                    </Route>
                     <Route path="/editreport">
                         <EditReport />
                     </Route>

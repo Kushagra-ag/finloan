@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Plus from './icons/plus-circle.svg';
 import Search from './icons/search.svg';
 import ArrowDown from './icons/chevron-down.svg';

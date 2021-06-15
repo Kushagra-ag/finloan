@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Edit from './icons/edit.svg';
 import Delete from './icons/delete.svg';
 import EditBlue from './icons/edit-blue.svg';
