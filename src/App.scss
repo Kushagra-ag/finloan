@@ -70,6 +70,10 @@ form textarea {
   box-shadow: none;
 }
 
+.height-unset {
+  height: unset;
+}
+
 
 .blue-btn {
 	background-color: #e3ebf8;
@@ -165,7 +169,7 @@ form textarea {
 
 // table styles
 
-#editcode, #managereports, #managejobs {
+#editcode, #managereports, #managejobs, #jobhistory {
   .table {
     border-radius: 15px;
     padding: 0 2em;
@@ -206,7 +210,7 @@ form textarea {
 
 // search box styles
 
-#managereports, #createreport, #editreport {
+#managereports, #createreport, #editreport, #jobhistory {
   .search-box {
     filter: drop-shadow(2px 1px 10px #c3c3c3);
   }

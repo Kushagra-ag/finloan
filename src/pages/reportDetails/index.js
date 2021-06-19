@@ -37,15 +37,14 @@ export default function ReportDetails() {
             <div className="py-3 d-flex align-items-center">
                 <h5 className="flex-grow-1">Report Details</h5>
                 <div>
-                    <div
-                        className="blue-btn d-inline-block"
-                    >
+                    <div className="blue-btn d-inline-block">
                         <img src={EditBlue} className="mr-2" alt="" />
                         <span className="align-middle">Edit</span>
                     </div>
                     <div
                         className="red-btn d-inline-block"
-                        data-toggle="modal" data-target="#deletereport"
+                        data-toggle="modal"
+                        data-target="#deletereport"
                     >
                         <img src={DeleteRed} className="mr-2" alt="" />
                         <span className="align-middle">Delete</span>
@@ -106,13 +105,17 @@ export default function ReportDetails() {
                 </div>
             </div>
             {/*Modals*/}
-            <div role="dialog" aria-modal="true" className="fade modal" tabIndex="-1" id="deletereport">
+            <div
+                role="dialog"
+                aria-modal="true"
+                className="fade modal"
+                tabIndex="-1"
+                id="deletereport"
+            >
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <div className="modal-title h4">
-                                Delete Report?
-                            </div>
+                            <div className="modal-title h4">Delete Report?</div>
                             <button type="button" className="close">
                                 <span aria-hidden="true">×</span>
                                 <span className="sr-only">Close</span>
@@ -120,10 +123,14 @@ export default function ReportDetails() {
                         </div>
                         <div className="modal-body">
                             <div className="delete-btn w-100 py-2 mb-3">
-                                <p className="m-0 text-center w-100">Yes, Delete</p>
+                                <p className="m-0 text-center w-100">
+                                    Yes, Delete
+                                </p>
                             </div>
                             <div className="cancel-btn py-2 w-100">
-                                <p className="m-0 text-center w-100">No, Keep It</p>
+                                <p className="m-0 text-center w-100">
+                                    No, Keep It
+                                </p>
                             </div>
                         </div>
                     </div>

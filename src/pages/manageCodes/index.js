@@ -53,8 +53,8 @@ export default function ManageCodes() {
     const [query, setQuery] = useState('');
     const [addCodeInput, setAddCodeInput] = useState('');
 
-
-    const handleAddCode = e => {console.log(e.target.value)
+    const handleAddCode = e => {
+        console.log(e.target.value);
         setAddCodeInput(e.target.value.trim());
     };
 
@@ -107,7 +107,8 @@ export default function ManageCodes() {
                 <h5 className="flex-grow-1">Manage Codes</h5>
                 <div
                     className="blue-btn"
-                    data-toggle="modal" data-target="#addcode"
+                    data-toggle="modal"
+                    data-target="#addcode"
                     // onClick={() => triggerModal('addcode')}
                 >
                     <img src={Plus} className="mr-2" alt="" />

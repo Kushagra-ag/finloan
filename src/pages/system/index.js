@@ -1,3 +1,4 @@
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Grid from './icons/grid.svg';
 import Audit from './icons/file.svg';
@@ -66,7 +67,10 @@ export default function System() {
                         </div>
                     </div>
                 </div>
-                <div className="col-sm-6 col-lg-4 my-3">
+                <div
+                    className="col-sm-6 col-lg-4 my-3"
+                    onClick={() => history.push('/managereports')}
+                >
                     <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
                         <div className="icon-img grid mr-4">
                             <img src={Reports} alt="" />
@@ -79,7 +83,10 @@ export default function System() {
                         </div>
                     </div>
                 </div>
-                <div className="col-sm-6 col-lg-4 my-3">
+                <div
+                    className="col-sm-6 col-lg-4 my-3"
+                    onClick={() => history.push('/manageroles')}
+                >
                     <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
                         <div className="icon-img audit mr-4">
                             <img src={Permissions} alt="" />
@@ -93,7 +100,10 @@ export default function System() {
                         </div>
                     </div>
                 </div>
-                <div className="col-sm-6 col-lg-4 my-3">
+                <div
+                    className="col-sm-6 col-lg-4 my-3"
+                    onClick={() => history.push('/managejobs')}
+                >
                     <div className="white-card d-flex align-items-center justify-content-start cursor-pointer">
                         <div className="icon-img code mr-4">
                             <img src={Calendar} alt="" />

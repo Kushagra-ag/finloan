@@ -33,18 +33,16 @@ const data = [
 ];
 
 const reportData = {
-
-        name: 'Active Clients',
-        type: '',
-        category: 'Clients',
-        UI: 'yes',
-        desc: 'All clients with the status Active',
-        sql: `SELECT c.id AS "id", 
+    name: 'Active Clients',
+    type: '',
+    category: 'Clients',
+    UI: 'yes',
+    desc: 'All clients with the status Active',
+    sql: `SELECT c.id AS "id", 
 c.firstname AS "firstName",
 c.middlename AS "middleName",
 c.lastname AS "lastName",`
-}
-
+};
 
 export default function EditReport() {
     const [params, setParams] = useState(data);
@@ -52,9 +50,10 @@ export default function EditReport() {
     const [query, setQuery] = useState('');
     const [search, updateSearch] = useState([]);
 
-    const reportDataChange = (e, key) => {console.log(e.target.value);
-        setDetails(details => ({...details, [key]: e.target.value}))
-    }
+    const reportDataChange = (e, key) => {
+        console.log(e.target.value);
+        setDetails(details => ({ ...details, [key]: e.target.value }));
+    };
 
     const removeParam = name => {
         // setParams(params => params.filter(key => key.name !== name));
@@ -164,7 +163,9 @@ export default function EditReport() {
                                                 id="name"
                                                 className="form-control h-50px"
                                                 value={details.name}
-                                                onChange={(e) => reportDataChange(e, 'name')}
+                                                onChange={e =>
+                                                    reportDataChange(e, 'name')
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -180,13 +181,17 @@ export default function EditReport() {
                                                 id="type"
                                                 className="custom-select h-50px"
                                                 value={details.type}
-                                                onChange={(e) => reportDataChange(e, 'type')}
+                                                onChange={e =>
+                                                    reportDataChange(e, 'type')
+                                                }
                                             >
-                                                <option>
-                                                    Select type
+                                                <option>Select type</option>
+                                                <option value="type1">
+                                                    type1
                                                 </option>
-                                                <option value="type1">type1</option>
-                                                <option value="type2">type2</option>
+                                                <option value="type2">
+                                                    type2
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
@@ -205,7 +210,12 @@ export default function EditReport() {
                                                 id="category"
                                                 className="form-control h-50px"
                                                 value={details.category}
-                                                onChange={(e) => reportDataChange(e, 'category')}
+                                                onChange={e =>
+                                                    reportDataChange(
+                                                        e,
+                                                        'category'
+                                                    )
+                                                }
                                             />
                                         </div>
                                     </div>
@@ -221,7 +231,9 @@ export default function EditReport() {
                                                 id="ui"
                                                 className="custom-select h-50px"
                                                 value={details.UI}
-                                                onChange={(e) => reportDataChange(e, 'UI')}
+                                                onChange={e =>
+                                                    reportDataChange(e, 'UI')
+                                                }
                                             >
                                                 <option value="no">No</option>
                                                 <option value="yes">Yes</option>
@@ -243,12 +255,13 @@ export default function EditReport() {
                                                 id="description"
                                                 className="form-control h-50px"
                                                 value={details.desc}
-                                                onChange={(e) => reportDataChange(e, 'desc')}
+                                                onChange={e =>
+                                                    reportDataChange(e, 'desc')
+                                                }
                                             />
                                         </div>
                                     </div>
                                 </div>
-                                
                             </div>
 
                             <div className="form-region">
@@ -261,9 +274,10 @@ export default function EditReport() {
                                                 id="sql"
                                                 rows="10"
                                                 className="w-100"
-                                                
                                                 value={details.sql}
-                                                onChange={(e) => reportDataChange(e, 'sql')}
+                                                onChange={e =>
+                                                    reportDataChange(e, 'sql')
+                                                }
                                             ></textarea>
                                         </div>
                                     </div>
@@ -428,13 +442,17 @@ export default function EditReport() {
                 </div>
             </div>
             {/*Modals*/}
-            <div role="dialog" aria-modal="true" className="fade modal" tabIndex="-1" id="deletereport">
+            <div
+                role="dialog"
+                aria-modal="true"
+                className="fade modal"
+                tabIndex="-1"
+                id="deletereport"
+            >
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <div className="modal-title h4">
-                                Delete Report?
-                            </div>
+                            <div className="modal-title h4">Delete Report?</div>
                             <button type="button" className="close">
                                 <span aria-hidden="true">×</span>
                                 <span className="sr-only">Close</span>
@@ -442,10 +460,14 @@ export default function EditReport() {
                         </div>
                         <div className="modal-body">
                             <div className="delete-btn w-100 py-2 mb-3">
-                                <p className="m-0 text-center w-100">Yes, Delete</p>
+                                <p className="m-0 text-center w-100">
+                                    Yes, Delete
+                                </p>
                             </div>
                             <div className="cancel-btn py-2 w-100">
-                                <p className="m-0 text-center w-100">No, Keep It</p>
+                                <p className="m-0 text-center w-100">
+                                    No, Keep It
+                                </p>
                             </div>
                         </div>
                     </div>
