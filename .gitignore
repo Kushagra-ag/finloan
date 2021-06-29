@@ -14,14 +14,6 @@
 /src/dev-routes.js
 /.prettierrc.json
 
-#incomplete
-/src/pages/manageJobs
-/src/pages/roleDetails
-
-/src/pages/jobDetails
-/src/pages/editJob
-/src/pages/jobHistory
-
 # misc
 .DS_Store
 .env.local
